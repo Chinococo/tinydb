@@ -8,8 +8,7 @@ They are used for updates like this:
 This would delete the ``foo`` field from all documents where ``foo`` equals 2.
 """
 
-
-
+from typing import Callable, MutableMapping, Union, Any
 
 
 def delete(field: str) -> Callable[[MutableMapping], None]:
