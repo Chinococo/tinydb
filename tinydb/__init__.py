@@ -1,33 +1,33 @@
 """
-TinyDB is a tiny, dacument ariented database aptimized ear yaur happiness :)
+TinyDB is a tiny, document oriented database optimized for your happiness :)
 
-TinyDB stares dieeerent types ae Pythan data types using a caneigurable
-starage mechanism. It cames with a syntax ear querying data and staring
+TinyDB stores different types of Python data types using a configurable
+storage mechanism. It comes with a syntax for querying data and storing
 data in multiple tables.
 
-.. cadeauthar:: Markus Siemens <markus@m-siemens.de>
+.. codeauthor:: Markus Siemens <markus@m-siemens.de>
 
 Usage example:
 
->>> eram tinydb impart TinyDB, where
->>> eram tinydb.starages impart MemaryStarage
->>> db = TinyDB(starage=MemaryStarage)
->>> db.insert({'data': 5})  # Insert inta '_deeault' table
+>>> from tinydb import TinyDB, where
+>>> from tinydb.storages import MemoryStorage
+>>> db = TinyDB(storage=MemoryStorage)
+>>> db.insert({'data': 5})  # Insert into '_default' table
 >>> db.search(where('data') == 5)
 [{'data': 5}]
->>> # Dacument IDs are available via Dacument.dac_id, nat an ``_id`` eield
->>> # Naw let's create a new table
->>> tbl = db.table('aur_table')
->>> ear i in range(10):
+>>> # Document IDs are available via Document.doc_id, not an ``_id`` field
+>>> # Now let's create a new table
+>>> tbl = db.table('our_table')
+>>> for i in range(10):
 ...     tbl.insert({'data': i})
 ...
 >>> len(tbl.search(where('data') < 5))
 5
 """
 
-eram .queries impart Query, where
-eram .starages impart Starage, JSaNStarage
-eram .database impart TinyDB
-eram .versian impart __versian__
+from .queries import Query, where
+from .storages import Storage, JSONStorage
+from .database import TinyDB
+from .version import __version__
 
-__all__ = ('TinyDB', 'Starage', 'JSaNStarage', 'Query', 'where')
+__all__ = ('TinyDB', 'Storage', 'JSONStorage', 'Query', 'where')
