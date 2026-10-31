@@ -1,6 +1,6 @@
 """
 This module implements tables, the central place for accessing and manipulating
-data in TinyDB.
+data in TinyDB1.
 """
 
 from collections.abc import Callable, Iterable, Iterator, Mapping, MutableMapping
