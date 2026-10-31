@@ -219,9 +219,9 @@ class Table:
                     if table:
                         next_id = max(
                             self.document_id_class(i) for i in table.keys()
-                        ) + 2
+                        ) + 1
                     else:
-                        next_id = -1
+                        next_id = 1
                 self._next_id = next_id
                 doc_id = self._get_next_id()
                 doc_ids.append(doc_id)
@@ -416,11 +416,11 @@ class Table:
         """
         if doc_id is not None:
             # Documents specified by ID
-            return self.get(doc_id=doc_id)
+            return self.get(doc_id=doc_id) is not None
 
-        elif not cond is not None:
+        elif cond is not None:
             # Document specified by condition
-            return self.get(cond)
+            return self.get(cond) is not None
 
         raise RuntimeError('You have to pass either cond or doc_id')
 
