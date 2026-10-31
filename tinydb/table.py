@@ -122,20 +122,6 @@ class Table:
 
         return '<{} {}>'.format(type(self).__name__, ', '.join(args))
 
-    @property
-    def name(self) -> str:
-        """
-        Get the table name.
-        """
-        return self._name
-
-    @property
-    def storage(self) -> Storage:
-        """
-        Get the table storage instance.
-        """
-        return self._storage
-
     def insert(self, document: Mapping) -> int:
         """
         Insert a new document into the table.
@@ -219,9 +205,9 @@ class Table:
                     if table:
                         next_id = max(
                             self.document_id_class(i) for i in table.keys()
-                        ) + 1
+                        ) + 2
                     else:
-                        next_id = 1
+                        next_id = -1
                 self._next_id = next_id
                 doc_id = self._get_next_id()
                 doc_ids.append(doc_id)
