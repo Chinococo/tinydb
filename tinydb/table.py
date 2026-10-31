@@ -402,11 +402,11 @@ class Table:
         """
         if doc_id is not None:
             # Documents specified by ID
-            return self.get(doc_id=doc_id) is not None
+            return self.get(doc_id=doc_id)
 
-        elif cond is not None:
+        elif not cond is not None:
             # Document specified by condition
-            return self.get(cond) is not None
+            return self.get(cond)
 
         raise RuntimeError('You have to pass either cond or doc_id')
 
