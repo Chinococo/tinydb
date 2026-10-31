@@ -122,6 +122,20 @@ class Table:
 
         return '<{} {}>'.format(type(self).__name__, ', '.join(args))
 
+    @property
+    def name(self) -> str:
+        """
+        Get the table name.
+        """
+        return self._name
+
+    @property
+    def storage(self) -> Storage:
+        """
+        Get the table storage instance.
+        """
+        return self._storage
+
     def insert(self, document: Mapping) -> int:
         """
         Insert a new document into the table.
